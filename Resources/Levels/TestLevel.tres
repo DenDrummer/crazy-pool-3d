@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_ig584")
-Name = "Test Level"
 scene = ExtResource("1_4beio")
+Name = "Test Level"
 tags = PackedStringArray("Test")
+par = 3
