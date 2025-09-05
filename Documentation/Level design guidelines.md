@@ -20,6 +20,31 @@ Finally, keep in mind that not everyone has an equally powerful machine.
 Because of this we ask that you keep things simple.  
 That includes visuals, moving objects, size and complexity of the map, etc.
 
+### Requirements
+Some things are absolutely required for the level to work.  
+Below you can find a short summary:
+- 1 and only 1 ball spawner
+- 1 and only 1 functioning hole
+- par of 255 or less
+
+### Recommendations
+The requirements alone do not make a fun level.
+Here's our recommendations for a fun level.
+- par of 2 to 5, or up to 10 at most
+- proper Out Of Bounds (OOB) areas:
+	- just like real mini golf, hitting the ball OOB should be ok as long as it lands back inside the bounds of the track, so place OOB areas accordingly.
+	- Currently only hard OOB areas are in the works, meaning the ball will immediately be eliminated upon entry.
+- not too difficult
+- consistent theming/decoration through your level
+- make it visually clear what is part of the track and what is not
+- don't overuse alternative routes
+- get some inspiration from real life mini golf/crazy golf, real life crazy pool, and other mini golf games (might not want to blindly copy tracks however)
+
+There's also some recommendations that depend on certain features being implemented:
+- only minor use of track effects (track effects not implemented)
+- make any track effects make sense at a glance, don't hide them (track effects not implemented)
+- When the ball can travel through an OOB area for any valid reason, use a soft OOB area, which will only eliminate if it comes to a standstill inside it. (soft OOB areas not implemented)
+
 ### Theming
 Any theme/setting is allowed, especially for User Generated Content\*, but it's highly recommended to tag levels accordingly.  
 This will make it possible to make themed lobbies once tag filtering is enabled.  

@@ -42,7 +42,7 @@ For now, we don't need accounts, but if we want leaderboards, rating systems, et
 This also means there will need to be an official server.
 
 ### User Generated Content
-For the longevity of the game, this is certainly something we're considering.  
+For the longevity of the game, this is certainly something we're aiming for.  
 However, this won't be for the near future, as UGC without a working game is kind of pointless.
 
 If an official place for sharing this content is made, a reporting feature for UGC will probably be required.  
@@ -69,7 +69,8 @@ I short, they should prioritize fun.
 If certain effects are used, they should be mentioned in the tags, so they can later be filtered out for players that don't like that feature.
 
 ### Level Editor
-There are no plans in the near future for this, but it's definitely on the table to add at some point if possible.
+There are no plans in the near future for this, but it's definitely on the table to add at some point if possible.  
+Might want to also have some kind of level browser, even if it's a simplified equivalent of what Zeepkist has.
 
 ## Campaigns
 These are intended to be an ordered list of levels following a theme and gradually getting more difficult.
@@ -85,5 +86,10 @@ Access to the official levels and campaigns will likely be behind a "pay once ha
 The price for this may go up over time as more levels and campaigns get added.
 
 If official servers get made, using these will probably be put behind a small subscription to account for costs of maintaining said server.  
-Preferably we'll also provide peer-to-peer and dedicated server options, which will be free to use as they provide no cost to us.  
-It is true that it'd lessen the revenue
+Preferably we'll also provide peer-to-peer and/or dedicated server options, which will be free to use as they provide no cost to us.  
+It is true that it'd lessen the revenue, but it also lessens the requirements for our own server, and thus its costs.
+
+Preferably no microtransactions, but if there are, then they'll be related to cosmetics.  
+There should never be microtransactions that give you a gameplay advantage over "F2P" players.
+
+Multiplayer access will likely also not be available in the demo version.
