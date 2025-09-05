@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class GameScene : Resource
+public partial class GameScene : Node
 {
     [Export]
     public PackedScene scene;
@@ -11,27 +11,14 @@ public partial class GameScene : Resource
     [Export(PropertyHint.Range, "1,255")]
     public byte par = 3;
 
-    public GameScene() { }
-
-    public GameScene(string name)
+    void PackGameScene()
     {
-        Name = name;
-    }
+        scene.Pack(this);
+        
+        FileAccess fileAccess = FileAccess.Open($"res://Scenes/levels/{Name}.tscn", FileAccess.ModeFlags.WriteRead);
 
-    public GameScene(PackedScene scene, string name, string[] tags, byte par = 3)
-    {
-        this.scene = scene;
-        Name = name ?? "";
-        this.tags = tags ?? [];
-        this.par = par;
-    }
+        fileAccess.StoreVar(scene);
 
-    public GameScene(Node node, string name, string[] tags, byte par = 3)
-    {
-        scene = new();
-        scene.Pack(node);
-        Name = name ?? "";
-        this.tags = tags ?? [];
-        this.par = par;
+        fileAccess.Close();
     }
 }
