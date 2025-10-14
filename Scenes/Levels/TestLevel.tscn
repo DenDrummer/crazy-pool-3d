@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqmknip2aowan"]
+[gd_scene load_steps=9 format=3 uid="uid://bqmknip2aowan"]
 
 [ext_resource type="Script" uid="uid://cml2djt4v0uas" path="res://Code/Main Game/Scripts/OrbitalCamera.cs" id="1_ss4xl"]
 [ext_resource type="Script" uid="uid://cdmsoeu5d3j3j" path="res://Code/Main Game/Resources/GameScene.cs" id="1_ytf4i"]
@@ -7,21 +7,23 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_ss4xl"]
 material = SubResource("StandardMaterial3D_pg1hx")
-size = Vector3(5, 0.2, 5)
-subdivide_width = 1
-subdivide_depth = 1
+size = Vector3(10, 0.2, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pg1hx"]
-size = Vector3(5, 0.2, 5)
+size = Vector3(10, 0.2, 50)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ytf4i"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_7e5cw"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ytf4i"]
+size = Vector3(2, 0.5, 2)
+
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_ytf4i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_ss4xl")
@@ -54,3 +56,9 @@ transform = Transform3D(0.435345, -0.519195, 0.735467, -0.256601, 0.711496, 0.65
 
 [node name="BallSpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Target" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 46)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
+shape = SubResource("BoxShape3D_ytf4i")
