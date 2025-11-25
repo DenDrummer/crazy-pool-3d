@@ -86,10 +86,10 @@ Access to the official levels and campaigns will likely be behind a "pay once ha
 The price for this may go up over time as more levels and campaigns get added.
 
 If official servers get made, using these will probably be put behind a small subscription to account for costs of maintaining said server.  
-Preferably we'll also provide peer-to-peer and/or dedicated server options, which will be free to use as they provide no cost to us.  
+Preferably we'll (also) provide peer-to-peer and/or dedicated server options, which will be free to use as they provide no cost to us.  
 It is true that it'd lessen the revenue, but it also lessens the requirements for our own server, and thus its costs.
 
 Preferably no microtransactions, but if there are, then they'll be related to cosmetics.  
 There should never be microtransactions that give you a gameplay advantage over "F2P" players.
 
-Multiplayer access will likely also not be available in the demo version.
+Multiplayer access might also not be available in the demo version.

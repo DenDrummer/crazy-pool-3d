@@ -1,7 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqmknip2aowan"]
+[gd_scene load_steps=14 format=3 uid="uid://bqmknip2aowan"]
 
 [ext_resource type="Script" uid="uid://cml2djt4v0uas" path="res://Code/Main Game/Scripts/OrbitalCamera.cs" id="1_ss4xl"]
 [ext_resource type="Script" uid="uid://cdmsoeu5d3j3j" path="res://Code/Main Game/Resources/GameScene.cs" id="1_ytf4i"]
+[ext_resource type="StyleBox" uid="uid://cq6allu3nu5ll" path="res://Resources/Styleboxes/MenuButtonStylebox_Hover.tres" id="3_iuug4"]
+[ext_resource type="StyleBox" uid="uid://bs0pm3emvgjvs" path="res://Resources/Styleboxes/MenuButtonStylebox.tres" id="4_o0omn"]
+[ext_resource type="Script" uid="uid://843uq6i2jidt" path="res://Code/Main Game/Scripts/MainMenuButton.cs" id="5_o0omn"]
+[ext_resource type="PackedScene" uid="uid://v1534ck3n2o8" path="res://Scenes/MainMenu.tscn" id="6_dqpvo"]
+[ext_resource type="Script" uid="uid://cgu0ooalr7kcb" path="res://Code/Main Menu/Scripts/QuitButton.cs" id="7_gyeg4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pg1hx"]
 
@@ -62,3 +67,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 46)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
 shape = SubResource("BoxShape3D_ytf4i")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MainMenuButton" type="Button" parent="UI/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 75.0
+offset_bottom = 75.0
+focus_mode = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = ExtResource("3_iuug4")
+theme_override_styles/normal = ExtResource("4_o0omn")
+text = "M"
+script = ExtResource("5_o0omn")
+MainScene = ExtResource("6_dqpvo")
+
+[node name="QuitButton" type="Button" parent="UI/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -75.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 75.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = ExtResource("3_iuug4")
+theme_override_styles/normal = ExtResource("4_o0omn")
+text = "X"
+script = ExtResource("7_gyeg4")

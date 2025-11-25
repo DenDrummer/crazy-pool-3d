@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://v1534ck3n2o8"]
+
+[ext_resource type="StyleBox" uid="uid://cq6allu3nu5ll" path="res://Resources/Styleboxes/MenuButtonStylebox_Hover.tres" id="1_df05h"]
+[ext_resource type="StyleBox" uid="uid://bs0pm3emvgjvs" path="res://Resources/Styleboxes/MenuButtonStylebox.tres" id="2_8um5k"]
+[ext_resource type="Script" uid="uid://d2fqwtu7j5lom" path="res://Code/Main Menu/Scripts/TestLevelButton.cs" id="3_xim88"]
+[ext_resource type="PackedScene" uid="uid://bqmknip2aowan" path="res://Scenes/Levels/TestLevel.tscn" id="4_koqhg"]
+[ext_resource type="Script" uid="uid://cgu0ooalr7kcb" path="res://Code/Main Menu/Scripts/QuitButton.cs" id="5_cmrfp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28flt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ehe0"]
+
+[node name="Main Menu" type="Node3D"]
+
+[node name="Viewpoint" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="UI/AspectRatioContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_28flt")
+
+[node name="TestLevel Button" type="Button" parent="UI/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("1_df05h")
+theme_override_styles/normal = ExtResource("2_8um5k")
+text = "Test-Level"
+script = ExtResource("3_xim88")
+TestLevel = ExtResource("4_koqhg")
+
+[node name="Panel" type="Panel" parent="UI/AspectRatioContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_28flt")
+
+[node name="Quit button" type="Button" parent="UI/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("1_df05h")
+theme_override_styles/normal = ExtResource("2_8um5k")
+text = "Quit"
+script = ExtResource("5_cmrfp")
+
+[node name="Panel2" type="Panel" parent="UI/AspectRatioContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1ehe0")
