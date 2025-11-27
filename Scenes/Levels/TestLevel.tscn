@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqmknip2aowan"]
+[gd_scene load_steps=13 format=3 uid="uid://bqmknip2aowan"]
 
 [ext_resource type="Script" uid="uid://cml2djt4v0uas" path="res://Code/Main Game/Scripts/OrbitalCamera.cs" id="1_ss4xl"]
 [ext_resource type="Script" uid="uid://cdmsoeu5d3j3j" path="res://Code/Main Game/Resources/GameScene.cs" id="1_ytf4i"]
 [ext_resource type="StyleBox" uid="uid://cq6allu3nu5ll" path="res://Resources/Styleboxes/MenuButtonStylebox_Hover.tres" id="3_iuug4"]
 [ext_resource type="StyleBox" uid="uid://bs0pm3emvgjvs" path="res://Resources/Styleboxes/MenuButtonStylebox.tres" id="4_o0omn"]
 [ext_resource type="Script" uid="uid://843uq6i2jidt" path="res://Code/Main Game/Scripts/MainMenuButton.cs" id="5_o0omn"]
-[ext_resource type="PackedScene" uid="uid://v1534ck3n2o8" path="res://Scenes/MainMenu.tscn" id="6_dqpvo"]
 [ext_resource type="Script" uid="uid://cgu0ooalr7kcb" path="res://Code/Main Menu/Scripts/QuitButton.cs" id="7_gyeg4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pg1hx"]
@@ -94,7 +93,7 @@ theme_override_styles/hover = ExtResource("3_iuug4")
 theme_override_styles/normal = ExtResource("4_o0omn")
 text = "M"
 script = ExtResource("5_o0omn")
-MainScene = ExtResource("6_dqpvo")
+LevelFile = "uid://v1534ck3n2o8"
 
 [node name="QuitButton" type="Button" parent="UI/Control"]
 custom_minimum_size = Vector2(50, 50)

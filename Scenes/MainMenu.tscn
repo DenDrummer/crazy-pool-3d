@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://v1534ck3n2o8"]
+[gd_scene load_steps=7 format=3 uid="uid://v1534ck3n2o8"]
 
 [ext_resource type="StyleBox" uid="uid://cq6allu3nu5ll" path="res://Resources/Styleboxes/MenuButtonStylebox_Hover.tres" id="1_df05h"]
 [ext_resource type="StyleBox" uid="uid://bs0pm3emvgjvs" path="res://Resources/Styleboxes/MenuButtonStylebox.tres" id="2_8um5k"]
 [ext_resource type="Script" uid="uid://d2fqwtu7j5lom" path="res://Code/Main Menu/Scripts/TestLevelButton.cs" id="3_xim88"]
-[ext_resource type="PackedScene" uid="uid://bqmknip2aowan" path="res://Scenes/Levels/TestLevel.tscn" id="4_koqhg"]
 [ext_resource type="Script" uid="uid://cgu0ooalr7kcb" path="res://Code/Main Menu/Scripts/QuitButton.cs" id="5_cmrfp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28flt"]
@@ -46,7 +45,7 @@ theme_override_styles/hover = ExtResource("1_df05h")
 theme_override_styles/normal = ExtResource("2_8um5k")
 text = "Test-Level"
 script = ExtResource("3_xim88")
-TestLevel = ExtResource("4_koqhg")
+LevelFile = "uid://bqmknip2aowan"
 
 [node name="Panel" type="Panel" parent="UI/AspectRatioContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)

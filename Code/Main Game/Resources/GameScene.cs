@@ -5,7 +5,7 @@ public partial class GameScene : Node
     [Export]
     public PackedScene scene;
     [Export]
-    public string Name = "";
+    public string SceneName = "";
     [Export]
     public string[] tags = [];
     [Export(PropertyHint.Range, "1,255")]
@@ -15,7 +15,7 @@ public partial class GameScene : Node
     {
         scene.Pack(this);
         
-        FileAccess fileAccess = FileAccess.Open($"res://Scenes/levels/{Name}.tscn", FileAccess.ModeFlags.WriteRead);
+        FileAccess fileAccess = FileAccess.Open($"res://Scenes/levels/{SceneName}.tscn", FileAccess.ModeFlags.WriteRead);
 
         fileAccess.StoreVar(scene);
 
