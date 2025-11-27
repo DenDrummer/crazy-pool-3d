@@ -1,13 +1,35 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqmknip2aowan"]
+[gd_scene load_steps=21 format=3 uid="uid://bqmknip2aowan"]
 
 [ext_resource type="Script" uid="uid://cml2djt4v0uas" path="res://Code/Main Game/Scripts/OrbitalCamera.cs" id="1_ss4xl"]
 [ext_resource type="Script" uid="uid://cdmsoeu5d3j3j" path="res://Code/Main Game/Resources/GameScene.cs" id="1_ytf4i"]
-[ext_resource type="StyleBox" uid="uid://cq6allu3nu5ll" path="res://Resources/Styleboxes/MenuButtonStylebox_Hover.tres" id="3_iuug4"]
-[ext_resource type="StyleBox" uid="uid://bs0pm3emvgjvs" path="res://Resources/Styleboxes/MenuButtonStylebox.tres" id="4_o0omn"]
+[ext_resource type="StyleBox" uid="uid://b0rwkblawifk2" path="res://Resources/Styleboxes/ButtonStylebox_Pressed.tres" id="3_gyeg4"]
+[ext_resource type="StyleBox" uid="uid://bhxxgikrl32wi" path="res://Resources/Styleboxes/ButtonStylebox_Hover.tres" id="3_iuug4"]
+[ext_resource type="StyleBox" uid="uid://b3upmrplk0rcf" path="res://Resources/Styleboxes/ButtonStylebox.tres" id="5_1mv4x"]
 [ext_resource type="Script" uid="uid://843uq6i2jidt" path="res://Code/Main Game/Scripts/MainMenuButton.cs" id="5_o0omn"]
 [ext_resource type="Script" uid="uid://cgu0ooalr7kcb" path="res://Code/Main Menu/Scripts/QuitButton.cs" id="7_gyeg4"]
+[ext_resource type="Script" uid="uid://d3udsw8xtpd01" path="res://Code/Main Game/Scripts/PlayerBall.cs" id="8_1mv4x"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gyeg4"]
+ground_bottom_color = Color(0.298039, 0.247059, 0.2, 1)
+
+[sub_resource type="Sky" id="Sky_1mv4x"]
+sky_material = SubResource("ProceduralSkyMaterial_gyeg4")
+
+[sub_resource type="Environment" id="Environment_1mv4x"]
+background_mode = 2
+sky = SubResource("Sky_1mv4x")
+ambient_light_source = 3
+ambient_light_color = Color(0.603922, 0.760784, 0.882353, 1)
+reflected_light_source = 2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1mv4x"]
+friction = 0.75
+bounce = 0.1
+absorbent = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pg1hx"]
+albedo_color = Color(0.133333, 0.533333, 0.133333, 1)
+roughness = 0.9
 
 [sub_resource type="BoxMesh" id="BoxMesh_ss4xl"]
 material = SubResource("StandardMaterial3D_pg1hx")
@@ -16,56 +38,25 @@ size = Vector3(10, 0.2, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pg1hx"]
 size = Vector3(10, 0.2, 50)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ytf4i"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_7e5cw"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ytf4i"]
 size = Vector3(2, 0.5, 2)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a7u0l"]
+friction = 0.75
+bounce = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ytf4i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mv4x"]
+albedo_color = Color(1, 1, 1, 0.8)
+roughness = 0.25
+ao_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_7e5cw"]
+material = SubResource("StandardMaterial3D_1mv4x")
+
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_ytf4i")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_ss4xl")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_pg1hx")
-
-[node name="Camera" type="Node3D" parent="." node_paths=PackedStringArray("trackedObject", "camera")]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 1, 0)
-script = ExtResource("1_ss4xl")
-trackedObject = NodePath("../RigidBody3D")
-camera = NodePath("Camera3D")
-rotationSpeed = 0.005
-
-[node name="Camera3D" type="Camera3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("SphereShape3D_ytf4i")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("SphereMesh_7e5cw")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.435345, -0.519195, 0.735467, -0.256601, 0.711496, 0.654163, -0.86292, -0.473509, 0.17652, 0, 0, 0)
-
-[node name="BallSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="Target" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 46)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
-shape = SubResource("BoxShape3D_ytf4i")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -89,8 +80,14 @@ offset_bottom = 75.0
 focus_mode = 0
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 24
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_gyeg4")
+theme_override_styles/hover_pressed = ExtResource("3_gyeg4")
+theme_override_styles/hover_mirrored = ExtResource("3_iuug4")
 theme_override_styles/hover = ExtResource("3_iuug4")
-theme_override_styles/normal = ExtResource("4_o0omn")
+theme_override_styles/pressed_mirrored = ExtResource("3_gyeg4")
+theme_override_styles/pressed = ExtResource("3_gyeg4")
+theme_override_styles/normal_mirrored = ExtResource("5_1mv4x")
+theme_override_styles/normal = ExtResource("5_1mv4x")
 text = "M"
 script = ExtResource("5_o0omn")
 LevelFile = "uid://v1534ck3n2o8"
@@ -109,7 +106,85 @@ grow_horizontal = 0
 focus_mode = 0
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 24
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_gyeg4")
+theme_override_styles/hover_pressed = ExtResource("3_gyeg4")
+theme_override_styles/hover_mirrored = ExtResource("3_iuug4")
 theme_override_styles/hover = ExtResource("3_iuug4")
-theme_override_styles/normal = ExtResource("4_o0omn")
+theme_override_styles/pressed_mirrored = ExtResource("3_gyeg4")
+theme_override_styles/pressed = ExtResource("3_gyeg4")
+theme_override_styles/normal_mirrored = ExtResource("5_1mv4x")
+theme_override_styles/normal = ExtResource("5_1mv4x")
 text = "X"
 script = ExtResource("7_gyeg4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.435345, -0.519195, 0.735467, -0.256601, 0.711496, 0.654163, -0.86292, -0.473508, 0.17652, 0, 4.94771, 0)
+light_color = Color(1, 0.933333, 0.866667, 1)
+light_angular_distance = 1.42
+shadow_enabled = true
+shadow_opacity = 0.99
+shadow_blur = 1.5
+directional_shadow_blend_splits = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1mv4x")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 20)
+size = Vector3(15, 5, 60)
+
+[node name="Camera" type="Node3D" parent="." node_paths=PackedStringArray("trackedObject", "camera")]
+transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 1, 0)
+script = ExtResource("1_ss4xl")
+trackedObject = NodePath("../World/Ball")
+camera = NodePath("Camera3D")
+rotationSpeed = 0.005
+
+[node name="Camera3D" type="Camera3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="BallSpawner" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MainTerrain" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+physics_material_override = SubResource("PhysicsMaterial_1mv4x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/MainTerrain"]
+mesh = SubResource("BoxMesh_ss4xl")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/MainTerrain"]
+shape = SubResource("BoxShape3D_pg1hx")
+
+[node name="Target" type="Area3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 46)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Target"]
+shape = SubResource("BoxShape3D_ytf4i")
+
+[node name="Ball" type="RigidBody3D" parent="World" node_paths=PackedStringArray("Camera", "ShotsLabel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+disable_mode = 2
+physics_material_override = SubResource("PhysicsMaterial_a7u0l")
+linear_damp = 0.2
+angular_damp = 0.3
+script = ExtResource("8_1mv4x")
+Camera = NodePath("../../Camera/Camera3D")
+ShotsLabel = NodePath("ShotsLabel")
+PoolCueForce = 25.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ball"]
+shape = SubResource("SphereShape3D_ytf4i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ball"]
+mesh = SubResource("SphereMesh_7e5cw")
+
+[node name="ShotsLabel" type="Label3D" parent="World/Ball"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+modulate = Color(0.7, 0.7, 0.7, 1)
+text = "0"
+
+[connection signal="input_event" from="World/Ball" to="World/Ball" method="ClickBall"]

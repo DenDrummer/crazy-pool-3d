@@ -52,13 +52,10 @@ public partial class OrbitalCamera : Node3D
                     startRotation = Rotation;
                     mouseStartPosition = GetViewport().GetMousePosition();
                     rotating = true;
-                    GD.Print("Rotating");
                 }
                 else if (mouseButtonEvent.IsReleased())
                 {
                     rotating = false;
-                    GD.Print("Not rotating");
-                    GD.Print($"Target: {targetRotation}");
                 }
             }
         }

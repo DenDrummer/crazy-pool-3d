@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://v1534ck3n2o8"]
+[gd_scene load_steps=8 format=3 uid="uid://v1534ck3n2o8"]
 
+[ext_resource type="StyleBox" uid="uid://c4ojr8ctx16pi" path="res://Resources/Styleboxes/MenuButtonStylebox_Pressed.tres" id="1_8um5k"]
 [ext_resource type="StyleBox" uid="uid://cq6allu3nu5ll" path="res://Resources/Styleboxes/MenuButtonStylebox_Hover.tres" id="1_df05h"]
 [ext_resource type="StyleBox" uid="uid://bs0pm3emvgjvs" path="res://Resources/Styleboxes/MenuButtonStylebox.tres" id="2_8um5k"]
 [ext_resource type="Script" uid="uid://d2fqwtu7j5lom" path="res://Code/Main Menu/Scripts/TestLevelButton.cs" id="3_xim88"]
@@ -41,7 +42,13 @@ size_flags_vertical = 4
 focus_mode = 0
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed_mirrored = ExtResource("1_8um5k")
+theme_override_styles/hover_pressed = ExtResource("1_8um5k")
+theme_override_styles/hover_mirrored = ExtResource("1_df05h")
 theme_override_styles/hover = ExtResource("1_df05h")
+theme_override_styles/pressed_mirrored = ExtResource("1_8um5k")
+theme_override_styles/pressed = ExtResource("1_8um5k")
+theme_override_styles/normal_mirrored = ExtResource("2_8um5k")
 theme_override_styles/normal = ExtResource("2_8um5k")
 text = "Test-Level"
 script = ExtResource("3_xim88")
@@ -60,7 +67,13 @@ size_flags_vertical = 4
 focus_mode = 0
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed_mirrored = ExtResource("1_8um5k")
+theme_override_styles/hover_pressed = ExtResource("1_8um5k")
+theme_override_styles/hover_mirrored = ExtResource("1_df05h")
 theme_override_styles/hover = ExtResource("1_df05h")
+theme_override_styles/pressed_mirrored = ExtResource("1_8um5k")
+theme_override_styles/pressed = ExtResource("1_8um5k")
+theme_override_styles/normal_mirrored = ExtResource("2_8um5k")
 theme_override_styles/normal = ExtResource("2_8um5k")
 text = "Quit"
 script = ExtResource("5_cmrfp")
